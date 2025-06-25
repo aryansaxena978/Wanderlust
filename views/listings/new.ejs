@@ -1,0 +1,44 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+<body>
+    <br>
+    <h2 class="offset-5">Create a new List</h2>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form action="/listings"method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" placeholder="Enter the title" class="form-control" required>
+                    <div class="invalid-feedback">Please enter a title</div>
+                </div><br>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" name="listing[description]" placeholder="Enter the description"class="form-control" required>
+                    <div class="invalid-feedback">Please enter a short description</div>
+                </div><br>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Listing Image</label>
+                    <input type="file" name="listing[image]"  class="form-control" required >
+                    <div class="invalid-feedback">Enter correct url</div>
+                </div><br>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="listing[price]" placeholder="Enter the price" class="form-control" required>
+                        <div class="invalid-feedback">Enter appropriate price</div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="listing[location]" placeholder="Enter the location" class="form-control" required>
+                        <div class="invalid-feedback">Please provide a location</div>
+                    </div>
+                </div><br>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="listing[country]" placeholder="Enter the country"class="form-control" required>
+                    <div class="invalid-feedback">Please enter the country</div>
+                </div><br>
+                <button class="btn btn-danger">Add the list</button><br><br><br>
+            </form>
+        </div>
+    </div>
+</body>
