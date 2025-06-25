@@ -1,110 +1,169 @@
-body{
-    background-color: pink;
-    font-family: "Plus Jakarta Sans", sans-serif !important;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+/* ===== BASE STYLES ===== */
+:root {
+  --primary-color: #fe424d;       /* Brand color (e.g., compass icon) */
+  --text-color: #222222;
+  --bg-color: pink;
+  --card-bg: white;
+  --footer-bg: #ebebeb;
+  --font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.container{
-    flex:1;
-    padding: 2rem;
-}
-.navbar{
-    background-color: white;
-    height:5rem;
-}
-.fa-compass{
-    font-size:2rem ;
-    color:#fe424d;
-}
-.nav-link{
-    color:#222222 !important;
+body {
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text-color);
 }
 
-.f-info-links a{
-    text-decoration: none;
-    color:#222222;
+/* ===== LAYOUT ===== */
+.container {
+  flex: 1;
+  padding: 2rem;
 }
 
-.f-info-links a:hover{
-    text-decoration: underline;
+/* ===== NAVBAR ===== */
+.navbar {
+  background-color: var(--card-bg);
+  height: 5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
-
-
-.f-info-socials ,.f-info-links, .f-info-brand{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.fa-compass {
+  font-size: 2rem;
+  color: var(--primary-color);
 }
 
-.f-info-socials i{
-    font-size: 1.2 rem;
-    margin-right: 1rem;
-}
-.f-info{
-    height: 8rem;
-    background-color: #ebebeb;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items:space-evenly;
+.nav-link {
+  color: var(--text-color) !important; /* Avoid !important if possible */
+  transition: color 0.3s;
 }
 
-/* Card Styling */
-
-.listing-card{
-    border: none !important;
-    margin-bottom: 2rem;
+.nav-link:hover {
+  color: var(--primary-color) !important;
 }
 
-.card-img-top{
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover !important;
+/* ===== FOOTER ===== */
+.f-info {
+  height: 8rem;
+  background-color: var(--footer-bg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* Fixed typo (was align-items:space-evenly) */
+  gap: 1rem; /* Added gap for better spacing */
 }
 
-.card-body{
-    padding: 0 !important;
+.f-info-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: text-decoration 0.3s;
 }
 
-.card-text p{
-    font-weight:400 !important;
+.f-info-links a:hover {
+  text-decoration: underline;
 }
 
-.listing-link{
-    text-decoration: none;
+.f-info-socials i {
+  font-size: 1.2rem; /* Fixed typo (rem not "rem ") */
+  margin-right: 1rem;
+  color: var(--text-color);
 }
 
-/* Card Effects */
-
-.card-img-overlay{
-    opacity: 0;
+/* Center align footer sections */
+.f-info-socials,
+.f-info-links,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.card-img-overlay:hover{
-    opacity: 0.2;
-    background-color: white;
+/* ===== CARDS ===== */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+  transition: transform 0.3s; /* Added hover effect */
 }
 
-/* ADD New Page  */
-.offset-5{
-    box-shadow:inset;
-    /* border: #222222 solid; */
-    display: inline-block;
+.listing-card:hover {
+  transform: translateY(-5px);
 }
 
-/* show pages */
-.show-btns{
-    display: flex;
-    justify-content: space-between;
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  height: 200px; /* Added fixed height for consistency */
 }
 
-.show-img{
-    height: 30vh;
+.card-body {
+  padding: 0 !important;
 }
 
-/* Map Styling */
-#map { height: 180px; }
+.card-text p {
+  font-weight: 400 !important;
+  margin: 0.5rem 0; /* Added spacing */
+}
+
+.listing-link {
+  text-decoration: none;
+  color: inherit; /* Ensure text color consistency */
+}
+
+/* Card overlay effect */
+.card-img-overlay {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+/* ===== SHOW PAGE ===== */
+.show-img {
+  height: 30vh;
+  object-fit: cover; /* Ensure images fill container */
+  border-radius: 1rem;
+}
+
+.show-btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem; /* Added gap for mobile responsiveness */
+}
+
+/* ===== MAP ===== */
+#map {
+  height: 400px; /* Increased height for better visibility */
+  width: 100%;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.offset-5 {
+  display: inline-block;
+  /* Removed invalid box-shadow:inset */
+}
+
+/* ===== RESPONSIVE FIXES ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .show-btns {
+    flex-direction: column; /* Stack buttons on mobile */
+  }
+
+  .f-info {
+    height: auto;
+    padding: 1rem 0;
+  }
+}
