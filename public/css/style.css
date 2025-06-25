@@ -45,6 +45,16 @@ body {
   color: var(--primary-color) !important;
 }
 
+@media (max-width: 991.98px) {
+  .mobile-white-bg {
+    background-color: white !important;
+  }
+
+  .mobile-white-bg .nav-link {
+    color: black !important; /* Ensure readable text on white background */
+  }
+}
+
 /* ===== FOOTER ===== */
 .f-info {
   height: 8rem;
