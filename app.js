@@ -109,6 +109,10 @@ app.use("/",userRouter);
 
 
 // Handling wrong route 
+app.all("/", wrapAsync(async(req, res, next) => {
+    res.redirect("/listings");
+}));
+
 app.all("/:var", wrapAsync(async(req, res, next) => {
     next(new ExpressError(404, "Page Not Found!!"));
 }));
